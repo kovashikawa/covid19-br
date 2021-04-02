@@ -16,7 +16,7 @@ def get_data_from_elasticsearch(api_url, index_name, sort_by, username, password
     es = ElasticSearch(api_url)
     iterator = es.paginate(index=index_name, sort_by=sort_by, user=username, password=password, page_size=page_size)
     progress = tqdm(unit_scale=True)
-    progress.desc = f"Downloading page 001"
+    progress.desc = "Downloading page 001"
     progress.refresh()
     for page_number, page in enumerate(iterator, start=1):
         progress.desc = f"Downloaded page {page_number:03d}"
